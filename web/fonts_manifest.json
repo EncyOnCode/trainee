@@ -1,0 +1,16 @@
+{
+  "fonts": [
+    {
+      "family": "Mark Pro",
+      "fonts": [
+        {
+          "asset": "fonts/MarkPro.ttf"
+        },
+        {
+          "asset": "fonts/MarkProBold.ttf",
+          "weight": 700
+        }
+      ]
+    }
+  ]
+}

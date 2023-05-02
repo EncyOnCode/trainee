@@ -14,6 +14,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter().config(),
+      theme: ThemeData(
+        fontFamily: 'Mark Pro'
+      ),
     );
   }
 }
@@ -26,15 +29,11 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Center(
-          child: GPSWidget(cityName: 'Prague'),
-        )
-      ),
-      body: const Center(
-        child: GPSWidget(
-            cityName: 'Prague',
-        ),
-      ),
+          backgroundColor: Colors.white,
+          title: const Center(
+            child: GPSWidget(cityName: 'Czech, Prague'),
+          )),
+      body: const Center(),
     );
   }
 }
@@ -59,16 +58,19 @@ class GPSWidget extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Icon(Icons.pin_drop),
+        const Icon(Icons.pin_drop, color: Color(0xFFFF6E4E),),
         const SizedBox(width: 8),
         Text(
           cityName,
           style: const TextStyle(
-            fontWeight: FontWeight.bold,
             fontSize: 16,
+            color: Color(0xFF010035)
           ),
         ),
+        Spacer(),
+        Icon(Icons.filter_list_alt, color: Color(0xFF010035), size: 17,)
       ],
     );
   }
 }
+
