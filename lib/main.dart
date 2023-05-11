@@ -206,11 +206,10 @@ class _SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final theme = Theme.of(context);
 
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: theme.colorScheme.onPrimary,
+        color: Colors.white,
         borderRadius: BorderRadius.circular(50),
       ),
       child: Padding(
