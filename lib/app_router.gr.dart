@@ -21,12 +21,6 @@ abstract class _$AppRouter extends RootStackRouter {
         child: const StartScreen(),
       );
     },
-    NewsRoute.name: (routeData) {
-      return AutoRoutePage<dynamic>(
-        routeData: routeData,
-        child: const NewsScreen(),
-      );
-    },
   };
 }
 

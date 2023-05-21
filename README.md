@@ -1,6 +1,6 @@
-# untitled
+# Trainee Project
 
-A new Flutter project.
+A training flutter project, curated by - [Tembeon](https://github.com/Tembeon)
 
 ## Getting Started
 
