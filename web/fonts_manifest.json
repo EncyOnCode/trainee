@@ -9,6 +9,14 @@
         {
           "asset": "fonts/MarkProBold.ttf",
           "weight": 700
+        },
+        {
+          "asset": "fonts/MarkProMedium.ttf",
+          "weight": 500
+        },
+        {
+          "asset": "fonts/MarkProHeave.ttf",
+          "weight": 900
         }
       ]
     }
