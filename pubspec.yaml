@@ -28,6 +28,10 @@ flutter:
         - asset: fonts/MarkPro.ttf
         - asset: fonts/MarkProBold.ttf
           weight: 700
+        - asset: fonts/MarkProMedium.ttf
+          weight: 500
+        - asset: fonts/MarkProHeavy.ttf
+          weight: 900
 
 
   uses-material-design: true

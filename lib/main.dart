@@ -26,18 +26,22 @@ class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF8F8F8),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF8F8F8),
         elevation: 0,
         centerTitle: true,
         title: const GPSWidget(),
       ),
       body: Column(
-        children: const [
-          CategoriesText(),
-          CategoryTextWidget(),
-          SearchBar(),
+        children: [
+          CategoriesText(bigTitle: 'Select Category', smallTitle: 'view all', onTap: () {},),
+          const SizedBox(height: 10),
+          const CategoryTextWidget(),
+          const SizedBox(height: 20),
+          const SearchBar(),
+          const SizedBox(height: 20),
+          CategoriesText(bigTitle: 'Hot sales', smallTitle: 'see more', onTap: () {},)
         ],
       ),
     );
@@ -54,23 +58,30 @@ class GPSWidget extends StatelessWidget {
       children: [
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const [
-            Icon(
-              Icons.pin_drop,
-              color: Color(0xFFFF6E4E),
+          children: [
+            IconButton(
+              icon: const Icon(Icons.pin_drop_outlined),
+              color: const Color(0xFFFF6E4E),
+              onPressed: () {},
+              splashRadius: 18,
             ),
-            Text(
+            const Text(
               'Russia, Izhevsk',
               style: TextStyle(
                 color: Color(0xFF010035),
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w500,
               ),
             )
           ],
         ),
-        const Align(
+        Align(
           alignment: Alignment.topRight,
-          child: Icon(Icons.filter_list_off_outlined, color: Color(0xFF010035)),
+          child: IconButton(
+            onPressed: () {},
+            icon: const Icon(Icons.filter_alt_outlined),
+            splashRadius: 15,
+            color: const Color(0xFF010035),
+          ),
         ),
       ],
     );
@@ -105,43 +116,40 @@ class _CategoryTextWidgetState extends State<CategoryTextWidget> {
     });
   }
 
+  List<Category> categories = [
+    Category(icon: Icons.smartphone_outlined, title: 'Phones'),
+    Category(icon: Icons.computer_outlined, title: 'Computer'),
+    Category(icon: Icons.health_and_safety_outlined, title: 'Health'),
+    Category(icon: Icons.book_outlined, title: 'Books'),
+  ];
+
   @override
   Widget build(BuildContext context) {
-    List<Category> categories = [
-      Category(icon: Icons.smartphone_outlined),
-      Category(icon: Icons.computer_outlined),
-      Category(icon: Icons.health_and_safety_outlined),
-      Category(icon: Icons.book_outlined),
-    ];
+    return Column(
+      children: [
+        SizedBox(
+          height: 115,
+          child: ListView.separated(
+            padding: const EdgeInsets.symmetric(horizontal: 8),
+            scrollDirection: Axis.horizontal,
+            itemCount: categories.length,
+            separatorBuilder: (context, index) => const SizedBox(width: 10),
+            itemBuilder: (context, index) {
+              final category = categories[index];
+              final isSelected = index == selectedCategoryIndex;
 
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 12),
-      child: Column(
-        children: [
-          const SizedBox(
-            height: 10,
+              return GestureDetector(
+                onTap: () => _selectCategory(index),
+                child: _CategoryItem(
+                  isSelected: isSelected,
+                  theIcon: category.icon,
+                  title: category.title,
+                ),
+              );
+            },
           ),
-          SizedBox(
-            height: 100,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                final category = categories[index];
-                final isSelected = index == selectedCategoryIndex;
-
-                return GestureDetector(
-                  onTap: () => _selectCategory(index),
-                  child: _CategoryItem(
-                    isSelected: isSelected,
-                    theIcon: category.icon,
-                  ),
-                );
-              },
-            ),
-          ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
@@ -149,11 +157,13 @@ class _CategoryTextWidgetState extends State<CategoryTextWidget> {
 class _CategoryItem extends StatelessWidget {
   final bool isSelected;
   final IconData theIcon;
+  final String title;
 
   const _CategoryItem({
     Key? key,
     required this.isSelected,
     required this.theIcon,
+    required this.title,
   }) : super(key: key);
 
   @override
@@ -172,11 +182,23 @@ class _CategoryItem extends StatelessWidget {
               child: Center(
                 child: Icon(
                   theIcon,
-                  color: isSelected ? Colors.white : Colors.black,
+                  color: isSelected ? Colors.white : const Color(0xFF010035),
                   size: 30,
                 ),
               ),
             ),
+          ),
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Text(
+          title,
+          style: TextStyle(
+            color:
+                isSelected ? const Color(0xFFFF6E4E) : const Color(0xFF010035),
+            fontSize: 12,
+            fontWeight: FontWeight.w500,
           ),
         ),
       ],
@@ -186,8 +208,9 @@ class _CategoryItem extends StatelessWidget {
 
 class Category {
   final IconData icon;
+  final String title;
 
-  Category({required this.icon});
+  Category({required this.icon, required this.title});
 }
 
 class SearchBar extends StatelessWidget {
@@ -195,13 +218,13 @@ class SearchBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 18),
+    return const Padding(
+      padding: EdgeInsets.symmetric(horizontal: 25),
       child: Row(
-        children: const <Widget>[
+        children: <Widget>[
           Expanded(child: _SearchBar()),
           Padding(
-            padding: EdgeInsets.symmetric(horizontal: 12),
+            padding: EdgeInsets.symmetric(horizontal: 8),
             child: _QRCodeButton(),
           ),
         ],
@@ -220,10 +243,10 @@ class _SearchBar extends StatelessWidget {
         color: Colors.white,
         borderRadius: BorderRadius.circular(50),
       ),
-      child: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 6.0, vertical: 12.0),
+      child: const Padding(
+        padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 12.0),
         child: Row(
-          children: const [
+          children: [
             Padding(
               padding: EdgeInsets.only(left: 12.0, right: 8.0),
               child: Icon(
@@ -246,17 +269,26 @@ class _SearchBar extends StatelessWidget {
 }
 
 class CategoriesText extends StatelessWidget {
-  const CategoriesText({Key? key}) : super(key: key);
+  const CategoriesText({
+    Key? key,
+    required this.bigTitle,
+    required this.smallTitle,
+    required this.onTap,
+  }) : super(key: key);
+
+  final String bigTitle;
+  final String smallTitle;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.all(8.0),
+      padding: const EdgeInsets.only(right: 18, left: 12, top: 12, bottom: 12),
       child: Row(
         children: [
-          const Text(
-            'Select Category',
-            style: TextStyle(
+          Text(
+            bigTitle,
+            style: const TextStyle(
               color: Color(0xFF010035),
               fontSize: 25,
               fontWeight: FontWeight.bold,
@@ -265,9 +297,9 @@ class CategoriesText extends StatelessWidget {
           const Spacer(),
           TextButton(
             onPressed: () {},
-            child: const Text(
-              'view all',
-              style: TextStyle(
+            child: Text(
+              smallTitle,
+              style: const TextStyle(
                 color: Color(0xFFff6e4e),
                 fontSize: 15,
                 fontWeight: FontWeight.normal,
@@ -285,19 +317,19 @@ class _QRCodeButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ElevatedButton(
-      onLongPress: () => print('<blank>'), //TODO: сделать тултип на onLongPress
-      onPressed: () {},
-      style: ButtonStyle(
-        backgroundColor: MaterialStateProperty.all(const Color(0xFFFF6E4E)),
-        shape: MaterialStateProperty.all(const CircleBorder()),
-        padding: const MaterialStatePropertyAll(EdgeInsets.all(12)),
+    return DecoratedBox(
+      decoration: const ShapeDecoration(
+        shape: CircleBorder(),
+        color: Color(0xFFFF6E4E),
       ),
-      child: const Padding(
-        padding: EdgeInsets.all(5.0),
-        child: Icon(
-          Icons.qr_code_outlined,
-          size: 25,
+      child: IconButton(
+        onPressed: () {},
+        splashRadius: 25,
+        icon: const Icon(Icons.qr_code_outlined),
+        color: Colors.white,
+        tooltip: 'AMONG US',
+        style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all(const Color(0xFFFF6E4E)),
         ),
       ),
     );
