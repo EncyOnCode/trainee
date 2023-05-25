@@ -117,10 +117,10 @@ class CategoryTextWidget extends StatefulWidget {
   const CategoryTextWidget({Key? key}) : super(key: key);
 
   @override
-  _CategoryTextWidgetState createState() => _CategoryTextWidgetState();
+  CategoryTextWidgetState createState() => CategoryTextWidgetState();
 }
 
-class _CategoryTextWidgetState extends State<CategoryTextWidget> {
+class CategoryTextWidgetState extends State<CategoryTextWidget> {
   int selectedCategoryIndex = -1;
 
   void _selectCategory(int index) {
@@ -360,10 +360,10 @@ class HotSalesWidget extends StatefulWidget {
   final bool isNew;
 
   @override
-  _HotSalesWidgetState createState() => _HotSalesWidgetState();
+  HotSalesWidgetState createState() => HotSalesWidgetState();
 }
 
-class _HotSalesWidgetState extends State<HotSalesWidget> {
+class HotSalesWidgetState extends State<HotSalesWidget> {
   final List<String> imageUrls = [
     'https://media.discordapp.net/attachments/988860107423100938/1111314904872386662/image.png',
     'https://media.discordapp.net/attachments/988860107423100938/1111314904872386662/image.png',
@@ -526,6 +526,8 @@ class PhoneGridWidget extends StatelessWidget {
       name: 'Motorola One Edge',
     ),
   ];
+
+  PhoneGridWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
