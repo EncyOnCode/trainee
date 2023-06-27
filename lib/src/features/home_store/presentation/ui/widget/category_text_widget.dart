@@ -83,7 +83,7 @@ class _CategoryItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final color = isSelected ? const Color(0xFF010035) : Colors.white;
+    final color = isSelected ? const Color(0xFFFF6E4E) : Colors.white;
 
     return Column(
       children: [

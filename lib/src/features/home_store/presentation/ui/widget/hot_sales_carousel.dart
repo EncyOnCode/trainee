@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../domain/sales_item_data.dart';
 
 class HotSalesCarousel extends StatefulWidget {
   const HotSalesCarousel({Key? key, required this.isNew}) : super(key: key);
@@ -9,41 +10,27 @@ class HotSalesCarousel extends StatefulWidget {
   HotSalesCarouselState createState() => HotSalesCarouselState();
 }
 
-class SalesItem {
-  final String imageUrl;
-  final String pageTitle;
-  final String pageDescription;
-
-  SalesItem({
-    required this.imageUrl,
-    required this.pageTitle,
-    required this.pageDescription,
-  });
-}
-
 class HotSalesCarouselState extends State<HotSalesCarousel> {
   final List<SalesItem> salesItems = [
-    SalesItem(
+    const SalesItem(
       imageUrl:
       'https://media.discordapp.net/attachments/988860107423100938/1111314904872386662/image.png',
       pageTitle: 'Iphone 12',
       pageDescription: 'Super. Mega. Rapido.',
     ),
-    SalesItem(
+    const SalesItem(
       imageUrl:
       'https://media.discordapp.net/attachments/988860107423100938/1111314904872386662/image.png',
       pageTitle: 'Some other title',
       pageDescription: 'Some other description',
     ),
-    SalesItem(
+    const SalesItem(
       imageUrl:
       'https://media.discordapp.net/attachments/988860107423100938/1111314904872386662/image.png',
       pageTitle: 'Another title',
       pageDescription: 'Another description',
     )
   ];
-
-  int currentIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,7 +40,6 @@ class HotSalesCarouselState extends State<HotSalesCarousel> {
         itemCount: salesItems.length,
         onPageChanged: (index) {
           setState(() {
-            currentIndex = index;
           });
         },
         itemBuilder: (context, index) {
@@ -96,7 +82,7 @@ class HotSalesCarouselState extends State<HotSalesCarousel> {
                     left: 8,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      color: Colors.black.withOpacity(0),
+                      color: Colors.black,
                       child: Text(
                         item.pageTitle,
                         style: const TextStyle(
@@ -112,7 +98,7 @@ class HotSalesCarouselState extends State<HotSalesCarousel> {
                     left: 8,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      color: Colors.black.withOpacity(0),
+                      color: Colors.black,
                       child: Text(
                         item.pageDescription,
                         style: const TextStyle(
@@ -127,7 +113,7 @@ class HotSalesCarouselState extends State<HotSalesCarousel> {
                     left: 8,
                     child: Container(
                       padding: const EdgeInsets.symmetric(horizontal: 8),
-                      color: Colors.black.withOpacity(0),
+                      color: Colors.black,
                       child: TextButton(
                         onPressed: () {},
                         style: const ButtonStyle(

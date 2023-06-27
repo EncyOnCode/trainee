@@ -35,7 +35,7 @@ class StartScreen extends StatelessWidget {
           const SearchLine(),
           const SizedBox(height: 20),
           CategoriesText(
-            bigTitle: 'Hot sales',
+            bigTitle: 'Hot Sales',
             smallTitle: 'see more',
             onTap: () {},
           ),
@@ -43,7 +43,7 @@ class StartScreen extends StatelessWidget {
           const HotSalesCarousel(isNew: true),
           const SizedBox(height: 20),
           CategoriesText(
-            bigTitle: 'Best seller',
+            bigTitle: 'Best Seller',
             smallTitle: 'see more',
             onTap: () {},
           ),
