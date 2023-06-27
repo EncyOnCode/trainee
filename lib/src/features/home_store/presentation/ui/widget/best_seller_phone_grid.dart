@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../../domain/phone_item.dart';
 
 class BestSellerPhoneGrid extends StatelessWidget {
   final List<PhoneItem> phones = [
@@ -135,18 +136,4 @@ class PhoneCard extends StatelessWidget {
       ),
     );
   }
-}
-
-class PhoneItem {
-  final String image;
-  final String currentPrice;
-  final String previousPrice;
-  final String name;
-
-  PhoneItem({
-    required this.image,
-    required this.currentPrice,
-    required this.previousPrice,
-    required this.name,
-  });
 }
