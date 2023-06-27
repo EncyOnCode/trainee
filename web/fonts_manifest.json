@@ -4,18 +4,18 @@
       "family": "Mark Pro",
       "fonts": [
         {
-          "asset": "fonts/MarkPro.ttf"
+          "asset": "assets/fonts/MarkPro.ttf"
         },
         {
-          "asset": "fonts/MarkProBold.ttf",
+          "asset": "assets/fonts/MarkProBold.ttf",
           "weight": 700
         },
         {
-          "asset": "fonts/MarkProMedium.ttf",
+          "asset": "assets/fonts/MarkProMedium.ttf",
           "weight": 500
         },
         {
-          "asset": "fonts/MarkProHeave.ttf",
+          "asset": "assets/fonts/MarkProHeave.ttf",
           "weight": 900
         }
       ]
