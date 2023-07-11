@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter().config(),
-      theme: ThemeData(fontFamily: 'Mark Pro'),
+      theme: ThemeData(fontFamily: 'Mark Pro', useMaterial3: true),
     );
   }
 }

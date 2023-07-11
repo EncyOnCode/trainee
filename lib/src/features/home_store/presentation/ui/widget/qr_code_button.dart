@@ -17,7 +17,7 @@ class QRCodeButton extends StatelessWidget {
         color: Colors.white,
         tooltip: 'AMONG US',
         style: ButtonStyle(
-          foregroundColor: MaterialStateProperty.all(const Color(0xFFFF6E4E)),
+          foregroundColor: MaterialStateProperty.all(Colors.white),
         ),
       ),
     );

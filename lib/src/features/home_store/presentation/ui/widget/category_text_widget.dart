@@ -43,7 +43,7 @@ class CategoryTextWidgetState extends State<CategoryTextWidget> {
     return Column(
       children: [
         SizedBox(
-          height: 115,
+          height: 117,
           child: ListView.separated(
             padding: const EdgeInsets.symmetric(horizontal: 8),
             scrollDirection: Axis.horizontal,
