@@ -1,26 +1,26 @@
+import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../screen/start_screen.dart';
-import 'categories_text.dart';
-import 'category_text_widget.dart';
+import '../home_store/presentation/ui/screen/start_screen.dart';
 
-const List<Widget> _screens = <Widget> [
-  StartScreen(),
-  Placeholder(),
-  Placeholder(),
-  Placeholder()
-];
-
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+@RoutePage()
+class NavBarScreen extends StatefulWidget {
+  const NavBarScreen({super.key});
 
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<NavBarScreen> createState() => _NavBarScreenState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _NavBarScreenState extends State<NavBarScreen> {
   int currentPageIndex = 0;
   final PageStorageBucket _bucket = PageStorageBucket();
+
+  static const List<Widget> _screens = <Widget>[
+    StartScreen(),
+    Placeholder(),
+    Placeholder(),
+    Placeholder(),
+  ];
 
   @override
   Widget build(BuildContext context) {

@@ -1,12 +1,11 @@
-import 'package:flutter/material.dart';
 import 'package:auto_route/auto_route.dart';
+import 'package:flutter/material.dart';
 
-import '../widget/gps_widget.dart';
-import '../widget/category_text_widget.dart';
-import '../widget/categories_text.dart';
-import '../widget/hot_sales_carousel.dart';
 import '../widget/best_seller_phone_grid.dart';
-import '../widget/nav_bar.dart';
+import '../widget/categories_text.dart';
+import '../widget/category_text_widget.dart';
+import '../widget/gps_widget.dart';
+import '../widget/hot_sales_carousel.dart';
 import '../widget/search_bar.dart';
 
 @RoutePage()
@@ -17,7 +16,6 @@ class StartScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       extendBody: true,
-      bottomNavigationBar: const NavBar(),
       backgroundColor: const Color(0xFFF8F8F8),
       appBar: AppBar(
         backgroundColor: const Color(0xFFF8F8F8),

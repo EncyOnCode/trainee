@@ -6,6 +6,7 @@
 
 // ignore_for_file: type=lint
 // coverage:ignore-file
+
 part of 'app_router.dart';
 
 abstract class _$AppRouter extends RootStackRouter {
@@ -14,6 +15,12 @@ abstract class _$AppRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    NavBarRoute.name: (routeData) {
+      return AutoRoutePage<dynamic>(
+        routeData: routeData,
+        child: const NavBarScreen(),
+      );
+    },
     StartRoute.name: (routeData) {
       return AutoRoutePage<dynamic>(
         routeData: routeData,
@@ -21,6 +28,20 @@ abstract class _$AppRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [NavBarScreen]
+class NavBarRoute extends PageRouteInfo<void> {
+  const NavBarRoute({List<PageRouteInfo>? children})
+      : super(
+          NavBarRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'NavBarRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for
@@ -33,20 +54,6 @@ class StartRoute extends PageRouteInfo<void> {
         );
 
   static const String name = 'StartRoute';
-
-  static const PageInfo<void> page = PageInfo<void>(name);
-}
-
-/// generated route for
-/// [NewsScreen]
-class NewsRoute extends PageRouteInfo<void> {
-  const NewsRoute({List<PageRouteInfo>? children})
-      : super(
-          NewsRoute.name,
-          initialChildren: children,
-        );
-
-  static const String name = 'NewsRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
 }
